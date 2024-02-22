@@ -60,7 +60,7 @@ body {
   padding-top: 20%; /* Adjust padding top */
   width: 100%;
   margin: 0 auto;
-  padding-bottom: 2%;
+  padding-bottom: 4%;
 }
 
 .footer{
@@ -69,6 +69,12 @@ body {
   border-radius: 5px;
   color: #fff;
   text-align: center;
+  padding-top: 5%;
+}
+
+.footer .play{
+  position: absolute;
+  top: 20%;
 }
 
 
@@ -88,5 +94,14 @@ body {
   .searchButton-one {
     width: 10%;
   }
+
+  .footer{
+    padding-top: 10%;
+}
+
+.footer .play{
+  position: absolute;
+  top: 20%;
+}
 
 }

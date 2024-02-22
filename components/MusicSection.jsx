@@ -322,6 +322,15 @@ const MusicSection = () => {
               <td><button>Delete</button></td>
             </tr>
           </tbody>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td colSpan={4}>Hi</td>
+              <td className='text-center fs-5'> <FaPlay/> </td>
+              <td className='text-center fs-5'> <FaStop/> </td>
+              <td><button>Delete</button></td>
+            </tr>
+          </tbody>
         </Table>
       </div>
       
