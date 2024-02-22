@@ -1,34 +1,44 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-body{
-  background: #f2f2f2;
+body {
+  /* background: #f2f2f2; */
+  background: #181818;
   font-family: 'Open Sans', sans-serif;
+  border-radius: 5px;
 }
+
+/* @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  body {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+} */
 
 .search-one {
   width: 100%;
-  position: relative;
   display: flex;
+  justify-content: center; /* Center the search input horizontally */
+  margin-top: 2rem; /* Adjust margin top */
 }
 
 .searchTerm-one {
-  width: 100%;
+  width: 70%; /* Adjust width to fit better on mobile */
   border: 3px solid #00B4CC;
   border-right: none;
   padding: 5px;
-  height: 36px;
+  height: 40px;
   border-radius: 5px 0 0 5px;
   outline: none;
   color: #9DBFAF;
 }
 
-.searchTerm-one:focus{
+.searchTerm-one:focus {
   color: #00B4CC;
 }
 
 .searchButton-one {
-  width: 40px;
-  height: 36px;
+  width: 8%; /* Adjust width to fit better on mobile */
+  height: 40px;
   border: 1px solid #00B4CC;
   background: #00B4CC;
   text-align: center;
@@ -38,11 +48,45 @@ body{
   font-size: 20px;
 }
 
-/*Resize the wrap to see the search bar change!*/
-.wrap-one{
-  width: 50%;
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.wrap-one {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Center the search bar vertically */
+  align-items: center; /* Center the search bar horizontally */
+  margin-top: 8rem; /* Adjust margin top */
+}
+
+.music-zone {
+  padding-top: 20%; /* Adjust padding top */
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 2%;
+}
+
+.footer{
+  width: 100%;
+  background: #1a0142;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .music-zone {
+    padding-top: 20%; /* Adjust padding top for smaller screens */
+    overflow-x: auto; /* Add horizontal scrolling only when necessary */
+    /* white-space: nowrap; Prevent line breaks */
+    padding-bottom: 6%;
+  }
+
+  .table {
+    font-size: 8px; /* Decrease font size for smaller screens */
+    max-width: 100%;
+  }
+
+  .searchButton-one {
+    width: 10%;
+  }
+
 }

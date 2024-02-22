@@ -1,11 +1,14 @@
 import Search from '../components/Search'
 import Menu from '../components/Menu'
 import {
-  HashRouter as Router,
-  // BrowserRouter as Router,
+  // HashRouter as Router,
+  BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
+import Homepage from '../pages/Homepage';
+import FooterBottom from '../components/FooterBottom';
+
 
 function App() {
   return (
@@ -13,8 +16,9 @@ function App() {
      <Router>
         <Menu/>
         <Routes> 
-            <Route path = "/search/location" exact element ={<Search/>}/>
+            <Route path = "/" exact element ={<Homepage/>}/>
         </Routes>
+        <FooterBottom/>
     </Router>
     </>
   )

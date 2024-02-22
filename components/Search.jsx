@@ -12,6 +12,7 @@ const Search = () => {
                       </button>
               </div>
           </div>
+          
     </div>
   )
 }
