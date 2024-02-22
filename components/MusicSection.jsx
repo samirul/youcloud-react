@@ -13,7 +13,7 @@ const MusicSection = () => {
               <th colSpan={4}>Title</th>
               <th className='text-center'>Play</th>
               <th className='text-center'>Stop</th>
-              <th>Option</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -22,7 +22,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -31,7 +31,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -40,7 +40,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -49,7 +49,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -58,7 +58,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -67,7 +67,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -76,7 +76,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -85,7 +85,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -94,7 +94,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -103,7 +103,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -112,7 +112,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -121,7 +121,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -130,7 +130,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -139,7 +139,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -148,7 +148,7 @@ const MusicSection = () => {
               <td colSpan={4}>cattttttttgdgfffffffffffffffffffffffffffffffffffffffffffffffffffffffff</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -157,7 +157,7 @@ const MusicSection = () => {
               <td colSpan={4}>cattttttttgdgfffffffffffffffffffffffffffffffffffffffffffffffffffffffff</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -166,7 +166,7 @@ const MusicSection = () => {
               <td colSpan={4}>cattttttttgdgfffffffffffffffffffffffffffffffffffffffffffffffffffffffff</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -175,7 +175,7 @@ const MusicSection = () => {
               <td colSpan={4}>cattttttttgdgfffffffffffffffffffffffffffffffffffffffffffffffffffffffff</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -184,7 +184,7 @@ const MusicSection = () => {
               <td colSpan={4}>cattttttttgdgfffffffffffffffffffffffffffffffffffffffffffffffffffffffff</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -193,7 +193,7 @@ const MusicSection = () => {
               <td colSpan={4}>cattttttttgdgfffffffffffffffffffffffffffffffffffffffffffffffffffffffff</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -202,7 +202,7 @@ const MusicSection = () => {
               <td colSpan={4}>cattttttttgdgfffffffffffffffffffffffffffffffffffffffffffffffffffffffff</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -211,7 +211,7 @@ const MusicSection = () => {
               <td colSpan={4}>cattttttttgdgfffffffffffffffffffffffffffffffffffffffffffffffffffffffff</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -220,7 +220,7 @@ const MusicSection = () => {
               <td colSpan={4}>cattttttttgdgfffffffffffffffffffffffffffffffffffffffffffffffffffffffff</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -229,7 +229,7 @@ const MusicSection = () => {
               <td colSpan={4}>cattttttttgdgfffffffffffffffffffffffffffffffffffffffffffffffffffffffff</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -238,7 +238,7 @@ const MusicSection = () => {
               <td colSpan={4}>cattttttttgdgfffffffffffffffffffffffffffffffffffffffffffffffffffffffff</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -247,7 +247,7 @@ const MusicSection = () => {
               <td colSpan={4}>cattttttttgdgfffffffffffffffffffffffffffffffffffffffffffffffffffffffff</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -256,7 +256,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -265,7 +265,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -274,7 +274,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -283,7 +283,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -292,7 +292,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -301,7 +301,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -310,7 +310,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
           <tbody>
@@ -319,7 +319,7 @@ const MusicSection = () => {
               <td colSpan={4}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aliquid</td>
               <td className='text-center fs-5'> <FaPlay/> </td>
               <td className='text-center fs-5'> <FaStop/> </td>
-              <td>Table cell</td>
+              <td><button>Delete</button></td>
             </tr>
           </tbody>
         </Table>
