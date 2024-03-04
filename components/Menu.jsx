@@ -10,12 +10,11 @@ const Menu = () => {
       <div>
           <Navbar expand="lg" className="bg-body-tertiary fixed-top">
               <Container>
-                  <Navbar.Brand href="#home">You Cloud</Navbar.Brand>
+                  <Navbar.Brand href="/">You Cloud</Navbar.Brand>
                   <Navbar.Toggle aria-controls="basic-navbar-nav" />
                   <Navbar.Collapse id="basic-navbar-nav">
                       <Nav className="me-auto">
-                          <Nav.Link href="#home">Home</Nav.Link>
-                          <Nav.Link href="/search/location">Login</Nav.Link>
+                          <Nav.Link href="#">Login</Nav.Link>
                           {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                               <NavDropdown.Item href="#action/3.2">

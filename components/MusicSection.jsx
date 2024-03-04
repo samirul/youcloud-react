@@ -2,11 +2,13 @@ import React from 'react'
 import Table from 'react-bootstrap/Table';
 import { FaPlay, FaStop } from "react-icons/fa6";
 
+
+
 const MusicSection = () => {
   return (
     <>
       <div>
-        <Table className='table' responsive="sm">
+        <Table hover variant="dark" className='table' responsive="sm">
           <thead>
             <tr>
               <th>ID</th>

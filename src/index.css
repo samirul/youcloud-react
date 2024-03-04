@@ -2,17 +2,11 @@
 
 body {
   /* background: #f2f2f2; */
-  background: #181818;
+  background: #212529;
   font-family: 'Open Sans', sans-serif;
   border-radius: 5px;
 }
 
-/* @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-  body {
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-  }
-} */
 
 .search-one {
   width: 100%;
@@ -57,7 +51,7 @@ body {
 }
 
 .music-zone {
-  padding-top: 20%; /* Adjust padding top */
+  padding-top: 2%; /* Adjust padding top */
   width: 100%;
   margin: 0 auto;
   padding-bottom: 4%;
@@ -80,7 +74,7 @@ body {
 
 @media only screen and (max-width: 768px) {
   .music-zone {
-    padding-top: 20%; /* Adjust padding top for smaller screens */
+    padding-top: 2%; /* Adjust padding top for smaller screens */
     overflow-x: auto; /* Add horizontal scrolling only when necessary */
     /* white-space: nowrap; Prevent line breaks */
     padding-bottom: 6%;
