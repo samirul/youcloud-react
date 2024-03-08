@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 body {
-  /* background: #f2f2f2; */
-  background: #212529;
+  background: #f2f2f2;
+  /* background: #212529; */
   font-family: 'Open Sans', sans-serif;
   border-radius: 5px;
 }
