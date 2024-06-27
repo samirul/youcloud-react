@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {CustomMusic} from '../pages/CustomMusic'
 import Table from 'react-bootstrap/Table';
 import { FaPlay, FaStop, FaPause } from "react-icons/fa6";
 import FooterBottom from './FooterBottom';
 import {FaVolumeUp, FaVolumeDown } from "react-icons/fa";
 import axios from 'axios';
+
 
 const MusicSection = () => {
   const { music, isPlayingMusic, timelineMusic, audioPlayingRefs,
@@ -14,7 +15,8 @@ const MusicSection = () => {
    } = CustomMusic()
 
    const [volumeLevel, setVolumeLevel] = useState(50);
-  //  const [token, setToken] = useState(localStorage.getItem('access'))
+   const[isChecked, setIsChecked] = useState(false);
+  //  const audioRef = useRef(null);
 
    
   useEffect(() => {
@@ -35,6 +37,25 @@ const MusicSection = () => {
       }
     });
   };
+
+
+  const handleLoopToggle = () => {
+    setIsChecked(prevState => !prevState); // Toggle the loop state
+
+    // Update the loop property for all audio elements
+    Object.values(audioPlayingRefs.current).forEach(audioRef => {
+      if (audioRef) {
+        audioRef.loop = !isChecked;
+      }
+    });
+  };
+
+
+  const handleCheckbox = (event) => {
+    setIsChecked(event.target.checked);
+  }
+
+
 
 const deleteMusic = async (data) => {
   const token = localStorage.getItem('access')
@@ -61,19 +82,20 @@ useEffect(()=>{
       <Table hover variant="dark" className='table' responsive="sm">
         <thead>
           <tr>
-            <th colSpan={4}>Title</th>
+            <th colSpan={4} className='text-center'>Title</th>
             <th className='text-center'>Play</th>
             <th className='text-center'>Stop</th>
-            <th className='text-center'>Status</th>
+            <th className='text-center'>Music Progress</th>
             <th className='text-center'>Slider</th>
-            <th className='text-center'>volume</th>
+            <th className='text-center'>Volume</th>
+            <th className='text-center'>Loop</th>
             <th className='text-center'>Delete</th>
           </tr>
         </thead>
         <tbody>
           {music.map((data) => (
             <tr key={data.id}>
-              <td colSpan={4}>{data.downloaded_music_title}</td>
+              <td colSpan={4} className='text-center'>{data.downloaded_music_title}</td>
               <td className='text-center fs-5'>
                 <audio
                   ref={(ref) => audioPlayingRefs.current[data.id] = ref}
@@ -81,7 +103,7 @@ useEffect(()=>{
                   onTimeUpdate={() => handleTimeUpdate(data.id)}
                   onEnded={() => setIsPlayingMusic(prevState => ({ ...prevState, [data.id]: false }))}
                 ></audio>
-                {isPlayingMusic[data.id] ? (
+                {isPlayingMusic[data.id]? (
                   <FaPause key={data.id} onClick={() => handlePlayPause(data.id)} />
                 ) : (
                   <FaPlay key={data.id} onClick={() => handlePlayPause(data.id)} />
@@ -113,6 +135,15 @@ useEffect(()=>{
                     max="100"
                   />
                   <FaVolumeUp className='volume-icon' onClick={() => handleVolumeChange(volumeLevel + 10)} />
+                </div>
+              </td>
+              <td>
+                <div className='text-center'>
+                <input
+                  type="checkbox"
+                  checked={isChecked}
+                  onChange={handleLoopToggle}
+                />
                 </div>
               </td>
               <td><div className='text-center'><button className='btn-delete' onClick={()=>deleteMusic(data)}>Delete</button></div></td>
