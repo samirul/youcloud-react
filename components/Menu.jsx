@@ -1,11 +1,30 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 
 const Menu = () => {
-    const [token, setToken] = useState(localStorage.getItem('access'))
+    const [token, setToken] = useState(localStorage.getItem('access'));
+    const [personUser, setpersonUser] = useState('');
+    const getUser = async () =>{
+        if(token){
+            const person = await axios.get('http://127.0.0.1:8000/api/social/login/user/', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            setpersonUser(person);
+        }
+        
+    }
+    useEffect(()=>{
+        getUser();
+    },[])
+    // console.log(personUser)
     return (
         <div>
             <Navbar expand="lg" className="bg-body-tertiary fixed-top">
@@ -20,7 +39,8 @@ const Menu = () => {
                                 <Nav.Link href="/login">Login</Nav.Link></Nav>
                         )}
                         
-                        <Nav>Welcome Back: sds</Nav>
+                        {personUser ? <Nav>Welcome Back: {personUser.data.user.username}</Nav> :
+                        <nav></nav>}
 
                     </Navbar.Collapse>
                 </Container>
