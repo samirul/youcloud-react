@@ -28,9 +28,12 @@ const Search = () => {
     };
 
     const interval = setInterval(fetchTaskStatus, 3000); // fetch every 3 sec
-
-    setStatus({ 'status': 'Looking for Url...' })
-
+    const token = localStorage.getItem('access')
+    if(token){
+      setStatus({ 'status': 'Looking for Url...' })
+    }else{
+      setStatus({ 'status': 'Please Login...' })
+    }
     return () => clearInterval(interval); // Clean up the interval after component would be unmounted
   }, [res]);
 
@@ -89,7 +92,7 @@ const Search = () => {
           </div>
         </form>
         <div>
-          <p style={{ color: 'white', paddingTop: 50, display: 'flex', justifyContent: 'center' }}>{stats['status']}</p>
+          <p style={{ color: 'white', paddingTop: 50, display: 'flex', justifyContent: 'center', fontWeight: 600 }}>{stats['status']}</p>
         </div>
       </div>
       </>
