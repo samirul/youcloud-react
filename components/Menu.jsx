@@ -29,7 +29,7 @@ const Menu = () => {
         <div>
             <Navbar expand="lg" className="bg-body-tertiary fixed-top">
                 <Container>
-                    <Navbar.Brand href="/">You Cloud</Navbar.Brand>
+                    <Navbar.Brand href="/" className='nav-title'>You Cloud</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         {token ? (<Nav className="me-auto">
