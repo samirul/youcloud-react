@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { GoogleLogin } from '@react-oauth/google'
 import axios from 'axios'
 import { GoogleOAuthProvider} from '@react-oauth/google';
@@ -9,14 +9,12 @@ const SocialLogin = () => {
             const res = await axios.post('http://127.0.0.1:8000/api/social/login/google/', {
                 'access_token': response['credential']
             });
-
-            const GetRes = await axios.get(`http://127.0.0.1:8000/api/social/login/user/${res.data.key}`,
-                );
-
             if (res.status === 200){
-                if(res.data.key == GetRes.data.userToken){
+                if(res.data.access && res.data.user.pk && res.data.user.username){
                     window.location.replace('/')
-                    localStorage.setItem('key', res.data.key)
+                    localStorage.setItem('access', res.data.access)
+                    localStorage.setItem('refresh', res.data.refresh)
+                    console.log(localStorage.access)
                 }else{
                     window.location.replace('/login')
                 }
@@ -24,8 +22,10 @@ const SocialLogin = () => {
                 console.error('Authentication Failed :(')
             }
         }catch(error){
-            console.log('Error Authentication', error)
-        }
+            console.lerror('Error Authentication', error)
+        // }
+
+    }
 
         
     }

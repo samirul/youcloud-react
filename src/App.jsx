@@ -13,19 +13,19 @@ import SocialLogout from '../components/SocialLogout';
 
 
 function App() {
-  const access_key = localStorage.getItem('key')
+  const get_Token = localStorage.getItem('access')
   return (
     <>
       <Router>
         <Menu />
           <Routes>
             <Route path="/" exact element={<Homepage/>} />
-            {access_key ? (<Route path="/login" exact element={<Navigate to="/logout" replace />} />) : 
+            {get_Token ? (<Route path="/login" exact element={<Navigate to="/logout" replace />} />) : 
             (<Route path="/logout" exact element={<Navigate to="/login" replace />} />)}
             <Route path="/login" element={<SocialLogin />} />
             <Route path="/logout" element={<SocialLogout />} />
           </Routes>
-        <FooterBottom />
+        {/* <FooterBottom /> */}
       </Router>
     </>
   );

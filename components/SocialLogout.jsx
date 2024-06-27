@@ -7,7 +7,8 @@ const SocialLogout = () => {
     const handleLogout = () => {
         try {
             googleLogout()
-            localStorage.clear('key')
+            localStorage.clear('access')
+            localStorage.clear('refresh')
             console.log('Logged out successfully');
             window.location.replace('/')
         } catch (error) {

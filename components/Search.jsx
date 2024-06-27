@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { FaSearch } from "react-icons/fa";
 import axios from "axios";
 
@@ -7,19 +7,16 @@ const Search = () => {
   const [res, setRes] = React.useState('')
   const [stats, setStatus] = React.useState({ 'status': 'Looking for Url...' })
 
-
-  const accessToken = localStorage.getItem('key')
-
-
   React.useEffect(() => {
     const fetchTaskStatus = async () => {
-      if (res && res['download_id'] && accessToken) {
+      const token = localStorage.getItem('access')
+      if (res && res['download_id'] && token) {
         try {
           const response = await axios.get(`http://127.0.0.1:8000/audio/download/${res['download_id']}/`, {
             headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json',
-              'Authorization': `Token ${accessToken}`
+              'Authorization': `Bearer ${token}`
             }
           });
           setStatus(response.data);
@@ -44,21 +41,20 @@ const Search = () => {
     setlinkUrl(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (accessToken) {
+    const token = localStorage.getItem('access')
+    if (token) {
       // Send form data using Axios POST request
-      axios.post('http://127.0.0.1:8000/audio/download/', { 'downloaded_url_video_link': linkurl }, {
+      await axios.post('http://127.0.0.1:8000/audio/download/', { 'downloaded_url_video_link': linkurl }, {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
-          'Authorization': `Token ${accessToken}`
+          'Authorization': `Bearer ${token}`
         }
       })
         .then(response => {
           // Handle success
-          console.log('Form data sent successfully:', response.data);
           setRes(response.data)
         })
         .catch(error => {
