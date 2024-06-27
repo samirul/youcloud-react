@@ -75,7 +75,6 @@ const deleteMusic = async (data) => {
 useEffect(()=>{
   deleteMusic();
 },[])
-  
 
   return (
     <>
@@ -113,7 +112,7 @@ useEffect(()=>{
                 <FaStop key={data.id} onClick={() => handleStop(data.id)} />
               </td>
               <td className='text-center fs-5'>
-              <progress value={timelineMusic[data.id] || 0} max="100"></progress>
+              <progress className="progress-bars" value={timelineMusic[data.id] || 0} max="100"></progress>
               </td>
               <td className='text-center fs-5'>
               <input
@@ -122,6 +121,10 @@ useEffect(()=>{
                   onChange={(e) => handleProgressBarChange(data.id, parseInt(e.target.value))}
                   min="0"
                   max="100"
+                  id='myinput'
+                  style={{
+                    background: `linear-gradient(to right, #238d43 0%, #2cd87a, #238d43, #238d43 100%)`,
+                  }}
                 />
               </td>
               <td>
@@ -133,6 +136,10 @@ useEffect(()=>{
                     onChange={(e) => handleVolumeChange(parseInt(e.target.value))}
                     min="0"
                     max="100"
+                    id='myvol'
+                    style={{
+                      background: `linear-gradient(to right, #238d43 0%, #2cd87a, #238d43, #238d43 100%)`,
+                    }}
                   />
                   <FaVolumeUp className='volume-icon' onClick={() => handleVolumeChange(volumeLevel + 10)} />
                 </div>
