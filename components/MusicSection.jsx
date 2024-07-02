@@ -1,48 +1,52 @@
-import React, {useEffect, useState, useRef} from 'react';
-import {CustomMusic} from '../pages/CustomMusic'
+import React, { useEffect, useState, useRef } from 'react';
+import { CustomMusic } from '../pages/CustomMusic'
 import Table from 'react-bootstrap/Table';
 import { FaPlay, FaStop, FaPause } from "react-icons/fa6";
 import FooterBottom from './FooterBottom';
-import {FaVolumeUp, FaVolumeDown } from "react-icons/fa";
+import { FaVolumeUp, FaVolumeDown } from "react-icons/fa";
+import Checkbox from '@mui/material/Checkbox';
+import {CheckboxExport} from './CheckboxExport'
 import axios from 'axios';
 
 
 const MusicSection = () => {
   const { music, isPlayingMusic, timelineMusic, audioPlayingRefs,
-    getMusics,handlePlayPause, handleStop, handleTimeUpdate,
+    getMusics, handlePlayPause, handleStop, handleTimeUpdate,
     setIsPlayingMusic, handleProgressBarChange, progressValues,
-    
-   } = CustomMusic()
 
-   const [volumeLevel, setVolumeLevel] = useState(50);
-   const[isChecked, setIsChecked] = useState(false);
-  //  const audioRef = useRef(null);
+  } = CustomMusic()
 
-   
+  const {BpIcon, BpCheckedIcon} = CheckboxExport()
+
+  const [volumeLevel, setVolumeLevel] = useState(50);
+  const [isChecked, setIsChecked] = useState(false);
+
+
+
   useEffect(() => {
     getMusics();
-    const interval = setInterval(getMusics, 2000); // Fetch data every 10 seconds
-    return () => clearInterval(interval)// Cleanup function to clear interval when component unmounts
+    const interval = setInterval(getMusics, 2000); // Fetch data every 10 seconds....
+    return () => clearInterval(interval)// Cleanup function to clear interval when component unmounts....
   }, []);
 
 
-   // Function to handle volume change
-   const handleVolumeChange = (newValue) => {
-    setVolumeLevel(newValue); // Update the volume level
+  // Function to handle volume change....
+  const handleVolumeChange = (newValue) => {
+    setVolumeLevel(newValue); // Update the volume level....
 
-    // Update the volume for all music items
+    // Update the volume for all music items....
     Object.values(audioPlayingRefs.current).forEach(audioRef => {
       if (audioRef) {
-        audioRef.volume = newValue / 100; // Volume should be between 0 and 1
+        audioRef.volume = newValue / 100; // Volume should be between 0 and 1....
       }
     });
   };
 
 
   const handleLoopToggle = () => {
-    setIsChecked(prevState => !prevState); // Toggle the loop state
+    setIsChecked(prevState => !prevState); // Toggle the loop state....
 
-    // Update the loop property for all audio elements
+    // Update the loop property for all audio elements....
     Object.values(audioPlayingRefs.current).forEach(audioRef => {
       if (audioRef) {
         audioRef.loop = !isChecked;
@@ -57,24 +61,26 @@ const MusicSection = () => {
 
 
 
-const deleteMusic = async (data) => {
-  const token = localStorage.getItem('access')
-  try{
-    await axios.get(`http://127.0.0.1:8000/audio/delete-audio/${data.id}/`,{
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': `Bearer ${token}`
-      }
-    })
-  }catch(error){
+  const deleteMusic = async (data) => {
+    const token = localStorage.getItem('access')
+    try {
+      await axios.get(`http://127.0.0.1:8000/audio/delete-audio/${data.id}/`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      })
+    } catch (error) {
 
-  } 
-}
+    }
+  }
 
-useEffect(()=>{
-  deleteMusic();
-},[])
+  useEffect(() => {
+    deleteMusic();
+  }, [])
+
+
 
   return (
     <>
@@ -102,7 +108,7 @@ useEffect(()=>{
                   onTimeUpdate={() => handleTimeUpdate(data.id)}
                   onEnded={() => setIsPlayingMusic(prevState => ({ ...prevState, [data.id]: false }))}
                 ></audio>
-                {isPlayingMusic[data.id]? (
+                {isPlayingMusic[data.id] ? (
                   <FaPause key={data.id} onClick={() => handlePlayPause(data.id)} />
                 ) : (
                   <FaPlay key={data.id} onClick={() => handlePlayPause(data.id)} />
@@ -112,10 +118,10 @@ useEffect(()=>{
                 <FaStop key={data.id} onClick={() => handleStop(data.id)} />
               </td>
               <td className='text-center fs-5'>
-              <progress className="progress-bars" value={timelineMusic[data.id] || 0} max="100"></progress>
+                <progress className="progress-bars" value={timelineMusic[data.id] || 0} max="100"></progress>
               </td>
               <td className='text-center fs-5'>
-              <input
+                <input
                   type="range"
                   value={progressValues[data.id] || 0}
                   onChange={(e) => handleProgressBarChange(data.id, parseInt(e.target.value))}
@@ -146,14 +152,18 @@ useEffect(()=>{
               </td>
               <td>
                 <div className='text-center'>
-                <input
-                  type="checkbox"
-                  checked={isChecked}
-                  onChange={handleLoopToggle}
-                />
+                  <Checkbox
+                    // type="checkbox"
+                    checked={isChecked}
+                    onChange={handleLoopToggle}
+                    color="success"
+                    checkedIcon={<BpCheckedIcon />}
+                    icon={<BpIcon />}
+                    
+                  />
                 </div>
               </td>
-              <td><div className='text-center'><button className='btn-delete' onClick={()=>deleteMusic(data)}>Delete</button></div></td>
+              <td><div className='text-center'><button className='btn-delete' onClick={() => deleteMusic(data)}>Delete</button></div></td>
             </tr>
           ))}
         </tbody>
@@ -161,7 +171,7 @@ useEffect(()=>{
       {/* <div>
       <FooterBottom music ={music} isPlaying={isPlayingMusic} handlePlayPause={handlePlayPause} />
       </div> */}
-      
+
     </>
 
   );
