@@ -13,5 +13,6 @@ You Cloud - Listen to your Favourite Music from YouTube videos without Visiting 
 
 Development = ->
 
-FrontEnd - React,
- Backend - Django Rest Framework(DRF), Celery Worker, Postgresql
+FrontEnd - React
+
+Backend - Django Rest Framework(DRF), Celery Worker, Postgresql
