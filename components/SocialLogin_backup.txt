@@ -32,9 +32,9 @@ const SocialLogin = () => {
   return (
     <>
     <div style={{position: 'absolute', top: 200}}>
-        <GoogleOAuthProvider clientId='703726974799-7l44udcrh4vcqk19j1rvtdta6ok1mff0.apps.googleusercontent.com'>
+        <GoogleOAuthProvider clientId=''>
             <GoogleLogin
-                clientId="703726974799-7l44udcrh4vcqk19j1rvtdta6ok1mff0.apps.googleusercontent.com"
+                clientId=""
                 buttonText="Login with Google"
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
