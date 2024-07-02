@@ -121,7 +121,7 @@ body {
 }
 
 
-.btn-delete{
+/* .btn-delete{
   padding: 5px 20px;
   border-radius: 50px;
   background-color: #01580f;
@@ -132,7 +132,7 @@ body {
   background-color: #ff0000;
   color: #fff;
   transition-delay: 0.1s;
-}
+} */
 
 
 .progress-bars{

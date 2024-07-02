@@ -6,6 +6,7 @@ import FooterBottom from './FooterBottom';
 import { FaVolumeUp, FaVolumeDown } from "react-icons/fa";
 import Checkbox from '@mui/material/Checkbox';
 import {CheckboxExport} from './CheckboxExport'
+import Button from '@mui/material/Button';
 import axios from 'axios';
 
 
@@ -163,7 +164,7 @@ const MusicSection = () => {
                   />
                 </div>
               </td>
-              <td><div className='text-center'><button className='btn-delete' onClick={() => deleteMusic(data)}>Delete</button></div></td>
+              <td><div className='text-center'><Button variant="contained" color="error" style={{fontWeight: 700}} onClick={() => deleteMusic(data)}>Delete</Button></div></td>
             </tr>
           ))}
         </tbody>
