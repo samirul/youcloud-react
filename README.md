@@ -8,8 +8,3 @@ Development = ->
 FrontEnd - Reactjs + Vite.
 
 Backend - Django Rest Framework(DRF), Celery Worker, Postgresql.
-
-
-h1{
-  color: "red";
-}
