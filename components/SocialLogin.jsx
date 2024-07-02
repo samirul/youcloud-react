@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useGoogleLogin } from '@react-oauth/google';
+import Button from '@mui/material/Button';
 
 const SocialLogin = () => {
     const login = useGoogleLogin({
@@ -31,10 +32,10 @@ const SocialLogin = () => {
     });
 
     return (
-        <div style={{ position: 'absolute', top: 200 }}>
-            <button onClick={() => login()}>
+        <div style={{ position: 'relative', top: 420, display: 'flex', justifyContent: 'center' }}>
+            <Button variant="contained" color="success" style={{fontWeight: 700}} onClick={() => login()}>
                 Login with Google
-            </button>
+            </Button>
         </div>
     );
 };

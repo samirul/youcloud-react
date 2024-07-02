@@ -1,7 +1,7 @@
 import React from 'react'
 import { googleLogout} from '@react-oauth/google'
 import { GoogleOAuthProvider } from '@react-oauth/google';
-
+import Button from '@mui/material/Button';
 
 const SocialLogout = () => {
     const handleLogout = () => {
@@ -18,10 +18,9 @@ const SocialLogout = () => {
 
     return (
         <>
-            <div style={{position: 'absolute', top: 200}}>
-                <h1>cat</h1>
+            <div style={{position: 'relative', top: 420, display: 'flex', justifyContent: 'center' }}>
                 <GoogleOAuthProvider>
-                    <button onClick={handleLogout}>Logout</button>
+                    <Button variant="contained" color="error" style={{fontWeight: 700}} onClick={handleLogout}>Logout</Button>
                 </GoogleOAuthProvider>
             </div>
         </>
