@@ -11,7 +11,7 @@ Currently, two official plugins are available:
 You Cloud - Listen to your Favourite Music from YouTube videos without Visiting to YouTube channel all the time, Download Once, Listen Always
 
 
-Development = -
+Development = ->
 
-FrontEnd - React
-Backend - Django Rest Framework(DRF), Celery Worker, Postgresql
+FrontEnd - React,
+ Backend - Django Rest Framework(DRF), Celery Worker, Postgresql
