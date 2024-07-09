@@ -22,7 +22,9 @@ const SocialLogin = () => {
                     console.error('Authentication Failed :(');
                 }
             } catch (error) {
-                console.error('Error Authentication', error);
+                if (error.response.status === 500){
+                    document.getElementById('msg').innerText = "Email already Exist."
+                }
             }
         },
         flow: 'auth-code',
@@ -32,11 +34,15 @@ const SocialLogin = () => {
     });
 
     return (
+        <>
+        <p id ='msg' style={{ position: 'relative', top: 250, display: 'flex', justifyContent: 'center', color: '#fff'}}></p>
         <div style={{ position: 'relative', top: 420, display: 'flex', justifyContent: 'center' }}>
             <Button variant="contained" color="success" style={{fontWeight: 700}} onClick={() => login()}>
                 Login with Google
             </Button>
         </div>
+        </>
+        
     );
 };
 
