@@ -113,13 +113,13 @@ const MusicSection = () => {
                   onEnded={() => setIsPlayingMusic(prevState => ({ ...prevState, [data.id]: false }))}
                 ></audio>
                 {isPlayingMusic[data.id] ? (
-                  <FaPause key={data.id} onClick={() => handlePlayPause(data.id)} />
+                  <FaPause key={data.id} className='play-pause' onClick={() => handlePlayPause(data.id)} />
                 ) : (
-                  <FaPlay key={data.id} onClick={() => handlePlayPause(data.id)} />
+                  <FaPlay key={data.id} className='play-pause' onClick={() => handlePlayPause(data.id)} />
                 )}
               </td>
               <td className='text-center fs-5'>
-                <FaStop key={data.id} onClick={() => handleStop(data.id)} />
+                <FaStop key={data.id} className='stop' onClick={() => handleStop(data.id)} />
               </td>
               <td className='text-center fs-5'>
                 <progress className="progress-bars" value={timelineMusic[data.id] || 0} max="100"></progress>
