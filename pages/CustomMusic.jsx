@@ -9,9 +9,7 @@ export const CustomMusic = () => {
     const [currentPlayingMusic, setCurrentPlayingMusic] = useState(null);
     const [timelineMusic, setTimeLineMusic] = useState({});
     const audioPlayingRefs = useRef({});
-    const progressBarRefs = useRef({});
     const [progressValues, setProgressValues] = useState({});
-    // const [token, setToken] = useState(localStorage.getItem('access'))
 
     const getMusics = async () => {
         const token = localStorage.getItem('access')
@@ -27,7 +25,6 @@ export const CustomMusic = () => {
                     setMusic(response.data);
                 } catch (error) {
                     console.error("showmusic Error is: ", error)
-                    // console.error(error);
                 }
             }
     };
@@ -35,50 +32,67 @@ export const CustomMusic = () => {
     const handlePlayPause = (id) => {
         const isPlaying = isPlayingMusic[id];
         if (isPlaying) {
+          if (audioPlayingRefs.current[id]) {
             audioPlayingRefs.current[id].pause();
+          }
         } else {
-
-            if (currentPlayingMusic !== null && currentPlayingMusic !== id) {
-                audioPlayingRefs.current[currentPlayingMusic].pause();
-                setIsPlayingMusic(prevState => ({ ...prevState, [currentPlayingMusic]: false }));
+          if (currentPlayingMusic !== null && currentPlayingMusic !== id) {
+            if (audioPlayingRefs.current[currentPlayingMusic]) {
+              audioPlayingRefs.current[currentPlayingMusic].pause();
             }
-
+            setIsPlayingMusic(prevState => ({ ...prevState, [currentPlayingMusic]: false }));
+          }
+    
+          if (audioPlayingRefs.current[id]) {
             audioPlayingRefs.current[id].play();
-            setCurrentPlayingMusic(id)
+            setCurrentPlayingMusic(id);
+          }
         }
         setIsPlayingMusic(prevState => ({ ...prevState, [id]: !isPlaying }));
-    };
+      };
 
 
     const handleStop = (id) => {
-        audioPlayingRefs.current[id].pause();
-        audioPlayingRefs.current[id].currentTime = 0;
+        if (audioPlayingRefs.current[id]) {
+          audioPlayingRefs.current[id].pause();
+          audioPlayingRefs.current[id].currentTime = 0;
+        }
         setIsPlayingMusic(prevState => ({ ...prevState, [id]: false }));
         setTimeLineMusic(prevState => ({ ...prevState, [id]: 0 }));
-    };
+        if (id === currentPlayingMusic) {
+          setCurrentPlayingMusic(null);
+        }
+      };
+
 
     const handleTimeUpdate = (id) => {
-        const currentPlayTime = audioPlayingRefs.current[id].currentTime;
-        const musicCurrentDuration = audioPlayingRefs.current[id].duration;
-        const musicProgressStatus = (currentPlayTime / musicCurrentDuration) * 100;
-        setTimeLineMusic(prevState => ({ ...prevState, [id]: musicProgressStatus }));
-
-
-        if (currentPlayTime >= musicCurrentDuration) {
-            const currentIndex = music.findIndex(item => item.id === id);
-            const nextIndex = currentIndex + 1;
-
-            if (nextIndex === music.length) {
+        if (audioPlayingRefs.current[id]) {
+          const currentPlayTime = audioPlayingRefs.current[id].currentTime;
+          const musicCurrentDuration = audioPlayingRefs.current[id].duration;
+          const musicProgressStatus = (currentPlayTime / musicCurrentDuration) * 100;
+          setProgressValues(prevState => ({ ...prevState, [id]: musicProgressStatus }));
+          setTimeLineMusic(prevState => ({ ...prevState, [id]: musicProgressStatus }));
+    
+          if (currentPlayTime >= musicCurrentDuration) {
+            if (loopStatus[id]) {
+              audioPlayingRefs.current[id].currentTime = 0;
+              audioPlayingRefs.current[id].play();
+            } else {
+              const currentIndex = music.findIndex(item => item.id === id);
+              const nextIndex = currentIndex + 1;
+    
+              if (nextIndex === music.length) {
                 handleStop(id);
                 return;
+              }
+    
+              const nextId = music[nextIndex].id;
+              handleStop(id);
+              handlePlayPause(nextId);
             }
-
-            const nextId = music[nextIndex].id;
-            handleStop(id);
-            handlePlayPause(nextId);
-
+          }
         }
-    };
+      };
 
     const handleProgressBarChange = (id, newValue) => {
         setProgressValues(prevState => ({
