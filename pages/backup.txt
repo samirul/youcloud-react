@@ -1,0 +1,28 @@
+// const handleTimeUpdate = (id) => {
+  //     if (audioPlayingRefs.current[id]) {
+  //       const currentPlayTime = audioPlayingRefs.current[id].currentTime;
+  //       const musicCurrentDuration = audioPlayingRefs.current[id].duration;
+  //       const musicProgressStatus = (currentPlayTime / musicCurrentDuration) * 100;
+  //       setProgressValues(prevState => ({ ...prevState, [id]: musicProgressStatus }));
+  //       setTimeLineMusic(prevState => ({ ...prevState, [id]: musicProgressStatus }));
+
+  //       if (currentPlayTime >= musicCurrentDuration) {
+  //         if (loopStatus[id]) {
+  //           audioPlayingRefs.current[id].currentTime = 0;
+  //           audioPlayingRefs.current[id].play();
+  //         } else {
+  //           const currentIndex = music.findIndex(item => item.id === id);
+  //           const nextIndex = currentIndex + 1;
+
+  //           if (nextIndex === music.length) {
+  //             handleStop(id);
+  //             return;
+  //           }
+
+  //           const nextId = music[nextIndex].id;
+  //           handleStop(id);
+  //           handlePlayPause(nextId);
+  //         }
+  //       }
+  //     }
+  //   };
