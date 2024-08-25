@@ -4,27 +4,29 @@ import Search from '../components/Search';
 import MusicSection from '../components/MusicSection';
 import axios from 'axios';
 import Alert from '@mui/material/Alert';
+import Cookies from 'js-cookie';
 
 
 const Homepage = () => {
+  axios.defaults.withXSRFToken = true
   const [alert, setAlert] = React.useState(false)
   const [alertType, setAlertType] = React.useState('')
   const [alertMsg, setAlertMsg] = React.useState('')
   const setAccessFromRefresh = async () => {
-    const refreshToken = localStorage.getItem('refresh')
+    const refreshToken = Cookies.get('refresh')
     try {
       if (refreshToken) {
-        const response = await axios.post('http://127.0.0.1:8000/api/social/login/api/token/refresh/', {
+        const response = await axios.post('http://127.0.0.1:80/api/social/login/api/token/refresh/', {
           'refresh': refreshToken,
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
           }
         })
-        localStorage.clear('access')
-        localStorage.clear('refresh')
-        localStorage.setItem('access', response.data.access);
-        localStorage.setItem('refresh', response.data.refresh);
+        Cookies.remove('access', { path: '' })
+        Cookies.remove('refresh', { path: '' })
+        Cookies.set('access', response.data.access, { expires: new Date(new Date().getTime() + 5 * 60 * 1000),  path: '' })
+        Cookies.set('refresh', response.data.refresh, { expires: 1,  path: '' })
       }
     } catch (error) {
       console.error("Error is: ", error)

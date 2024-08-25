@@ -1,15 +1,17 @@
 import React, {useState} from 'react';
 import { FaSearch } from "react-icons/fa";
-import axios from "axios";
+import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const Search = () => {
+  axios.defaults.withXSRFToken = true
   const [linkurl, setlinkUrl] = React.useState('');
   const [res, setRes] = React.useState('')
   const [stats, setStatus] = React.useState({ 'status': 'Looking for Url...' })
 
   React.useEffect(() => {
     const fetchTaskStatus = async () => {
-      const token = localStorage.getItem('access')
+      const token = Cookies.get('access')
       if (res && res['download_id'] && token) {
         try {
           const response = await axios.get(`http://127.0.0.1:8000/audio/download/${res['download_id']}/`, {
@@ -28,7 +30,7 @@ const Search = () => {
     };
 
     const interval = setInterval(fetchTaskStatus, 3000); // fetch every 3 sec
-    const token = localStorage.getItem('access')
+    const token = Cookies.get('access')
     if(token){
       setStatus({ 'status': 'Looking for Url...' })
     }else{
@@ -46,10 +48,10 @@ const Search = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem('access')
+    const token = Cookies.get('access')
     if (token) {
       // Send form data using Axios POST request
-      await axios.post('http://127.0.0.1:8000/audio/download/', { 'downloaded_url_video_link': linkurl }, {
+      await axios.post('http://127.0.0.1:80/audio/download/', { 'downloaded_url_video_link': linkurl }, {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',

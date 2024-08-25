@@ -4,13 +4,14 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const Menu = () => {
-    const [token, setToken] = useState(localStorage.getItem('access'));
+    const token = Cookies.get('access');
     const [personUser, setpersonUser] = useState('');
     const getUser = async () =>{
         if(token){
-            const person = await axios.get('http://127.0.0.1:8000/api/social/login/user/', {
+            const person = await axios.get('http://127.0.0.1:80/api/social/login/user/', {
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
@@ -24,7 +25,6 @@ const Menu = () => {
     useEffect(()=>{
         getUser();
     },[])
-    // console.log(personUser)
     return (
         <div>
             <Navbar expand="lg" className="bg-body-tertiary fixed-top">

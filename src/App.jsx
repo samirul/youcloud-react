@@ -8,15 +8,13 @@ import {
   Navigate
 } from "react-router-dom";
 import Homepage from '../pages/Homepage';
-import FooterBottom from '../components/FooterBottom';
-import SocialLogin from '../components/SocialLogin';
 import SocialLogout from '../components/SocialLogout';
 import Register from '../components/Register';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import Login from '../components/Login';
+import Cookies from 'js-cookie';
 
 function App() {
-  const get_Token = localStorage.getItem('access')
+  const get_Token = Cookies.get('access')
   return (
     <>
       <Router>

@@ -1,5 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 export const CustomMusic = () => {
 
@@ -12,7 +13,7 @@ export const CustomMusic = () => {
   const [progressValues, setProgressValues] = useState({});
 
   const getMusics = async () => {
-    const token = localStorage.getItem('access')
+    const token = Cookies.get('access')
     if (token) {
       try {
         const response = await axios.get('http://127.0.0.1:8000/audio/show-musics/', {

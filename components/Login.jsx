@@ -10,10 +10,12 @@ import CircularProgress from '@mui/material/CircularProgress';
 import axios from 'axios';
 import SocialLogin from './SocialLogin';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import Cookies from 'js-cookie';
+
 
 
 const Login = () => {
-
+    axios.defaults.withXSRFToken = true
     const paperStyle = { padding: 20, height: '40vh', width: 280, margin: "19px auto", backgroundColor: '#ffff' }
     const btnstyle = { margin: '12px 0' }
 
@@ -32,28 +34,25 @@ const Login = () => {
         setOpen(true);
     };
 
-
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://127.0.0.1:8000/api/auth/login/', {
+            const res = await axios.post('http://127.0.0.1:80/api/auth/login/', {
                 'email': email,
                 'password': password,
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
                 }
-
-            });
+            })
             if (res.status === 200) {
                 if (res.data.access && res.data.user.pk && res.data.user.username) {
                     window.location.replace('/');
                     setAlert(true);
                     setAlertType('success');
                     setAlertMsg('Login Successful.');
-                    localStorage.setItem('access', res.data.access);
-                    localStorage.setItem('refresh', res.data.refresh);
+                    Cookies.set('access', res.data.access, { expires: new Date(new Date().getTime() + 5 * 60 * 1000),  path: '' })
+                    Cookies.set('refresh', res.data.refresh, { expires: 1,  path: '' })
                 } else {
                     window.location.replace('/login');
                 }

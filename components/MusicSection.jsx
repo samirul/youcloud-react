@@ -2,12 +2,12 @@ import React, { useEffect, useState, useRef } from 'react';
 import { CustomMusic } from '../pages/CustomMusic'
 import Table from 'react-bootstrap/Table';
 import { FaPlay, FaStop, FaPause } from "react-icons/fa6";
-import FooterBottom from './FooterBottom';
 import { FaVolumeUp, FaVolumeDown } from "react-icons/fa";
 import Checkbox from '@mui/material/Checkbox';
 import {CheckboxExport} from './CheckboxExport'
 import Button from '@mui/material/Button';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 
 const MusicSection = () => {
@@ -66,9 +66,9 @@ const MusicSection = () => {
 
 
   const deleteMusic = async (data) => {
-    const token = localStorage.getItem('access')
+    const token = Cookies.get('access')
     try {
-      await axios.get(`http://127.0.0.1:8000/audio/delete-audio/${data.id}/`, {
+      await axios.get(`http://127.0.0.1:80/audio/delete-audio/${data.id}/`, {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
@@ -108,7 +108,7 @@ const MusicSection = () => {
               <td className='text-center fs-5'>
                 <audio
                   ref={(ref) => audioPlayingRefs.current[data.id] = ref}
-                  src={`http://127.0.0.1:8000/${data.downloaded_music_files}`}
+                  src={`http://127.0.0.1:80/${data.downloaded_music_files}`}
                   onTimeUpdate={() => handleTimeUpdate(data.id)}
                   onEnded={() => setIsPlayingMusic(prevState => ({ ...prevState, [data.id]: false }))}
                 ></audio>

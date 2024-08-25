@@ -2,14 +2,14 @@ import React from 'react'
 import { googleLogout} from '@react-oauth/google'
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Button from '@mui/material/Button';
+import Cookies from 'js-cookie';
 
 const SocialLogout = () => {
     const handleLogout = () => {
         try {
             googleLogout()
-            localStorage.clear('access')
-            localStorage.clear('refresh')
-            console.log('Logged out successfully');
+            Cookies.remove('access', { path: '' })
+            Cookies.remove('refresh', { path: '' })
             window.location.replace('/')
         } catch (error) {
             console.error('Logout failed:', error)

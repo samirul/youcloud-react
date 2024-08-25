@@ -12,7 +12,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 
 
 const Register = () => {
-
+    axios.defaults.withXSRFToken = true
     const paperStyle = { padding: 20, height: '45vh', width: 280, margin: "19px auto", backgroundColor: '#ffff' }
     const btnstyle = { margin: '12px 0' }
 
@@ -22,13 +22,9 @@ const Register = () => {
     const [confirmpassword, setconfirmPassword] = React.useState('')
 
     const handleSubmit = async (e) => {
-        console.log(username)
-        console.log(email)
-        console.log(password)
-        console.log(confirmpassword)
         e.preventDefault();
         try {
-            const res = await axios.post('http://127.0.0.1:8000/api/registration/', {
+            const res = await axios.post('http://127.0.0.1:80/api/registration/', {
                 'username': username,
                 'email': email,
                 'password1': password,

@@ -2,21 +2,21 @@ import React from 'react';
 import axios from 'axios';
 import { useGoogleLogin } from '@react-oauth/google';
 import Button from '@mui/material/Button';
-import Login from './Login';
+import Cookies from 'js-cookie';
 
 const SocialLogin = () => {
     const login = useGoogleLogin({
         onSuccess: async (codeResponse) => {
             console.log(codeResponse);
             try {
-                const res = await axios.post('http://127.0.0.1:8000/api/social/login/google/', {
+                const res = await axios.post('http://127.0.0.1:80/api/social/login/google/', {
                     'code': codeResponse.code
                 });
                 if (res.status === 200) {
                     if (res.data.access && res.data.user.pk && res.data.user.username) {
                         window.location.replace('/');
-                        localStorage.setItem('access', res.data.access);
-                        localStorage.setItem('refresh', res.data.refresh);
+                        Cookies.set('access', res.data.access, { expires: new Date(new Date().getTime() + 5 * 60 * 1000),  path: '' })
+                        Cookies.set('refresh', res.data.refresh, { expires: 1,  path: '' })
                     } else {
                         window.location.replace('/login');
                     }
